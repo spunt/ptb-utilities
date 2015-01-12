@@ -1,4 +1,4 @@
-function [resp rt] = ptb_get_resp(resp_device, resp_set)
+function [resp, rt] = ptb_get_resp(resp_device, resp_set)
 % PTB_GET_RESP Psychtoolbox utility for acquiring responses
 %
 % USAGE: [resp rt] = ptb_get_resp(resp_device,resp_set)
@@ -27,7 +27,7 @@ resp = [];
 rt = [];
 while noresp
     
-    [keyIsDown secs keyCode] = KbCheck(resp_device);
+    [keyIsDown, secs, keyCode] = KbCheck(resp_device);
     keyPressed = find(keyCode);
     if keyIsDown & ismember(keyPressed, resp_set)
         rt = secs - onset;
