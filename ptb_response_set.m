@@ -21,5 +21,4 @@ if nargin<1, disp('USAGE: resp_set = ptb_response_set(keys)'); return; end
 KbName('UnifyKeyNames');
 resp_set    = cell2mat(cellfun(@KbName, keys, 'Unif', false));
 old_set     = RestrictKeysForKbCheck(resp_set); 
-
 end
