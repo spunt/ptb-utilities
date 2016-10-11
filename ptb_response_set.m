@@ -11,14 +11,15 @@ function [resp_set, old_set] = ptb_response_set(keys)
 %
 
 % ---------------------- Copyright (C) 2013 ----------------------
-%	Author: Bob Spunt
-%	Affilitation: Caltech
-%	Email: spunt@caltech.edu
+%   Author: Bob Spunt
+%   Affilitation: Caltech
+%   Email: spunt@caltech.edu
 %
-%	$Revision Date: Oct_24_2013
+%   $Revision Date: Oct_24_2013
 
 if nargin<1, disp('USAGE: resp_set = ptb_response_set(keys)'); return; end
+if ischar(keys), keys = cellstr(keys); end
 KbName('UnifyKeyNames');
 resp_set    = cell2mat(cellfun(@KbName, keys, 'Unif', false));
-old_set     = RestrictKeysForKbCheck(resp_set); 
+old_set     = RestrictKeysForKbCheck(resp_set);
 end

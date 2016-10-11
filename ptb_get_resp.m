@@ -13,18 +13,18 @@ function [resp, rt] = ptb_get_resp(resp_device, resp_set)
 %
 
 % ------------------- Copyright (C) 2013 -------------------
-%	Author: Bob Spunt
-%	Affilitation: Caltech
-%	Email: spunt@caltech.edu
+%   Author: Bob Spunt
+%   Affilitation: Caltech
+%   Email: spunt@caltech.edu
 %
-%	$Revision Date: Oct_24_2013
+%   $Revision Date: Oct_24_2013
 
-if nargin<2, disp('USAGE: [resp rt] = ptb_get_resp(resp_device,resp_set)'); return; end
-
-onset = GetSecs;
-noresp = 1;
-resp = [];
-rt = [];
+if nargin < 2 , disp('USAGE: [resp, rt] = ptb_get_resp(resp_device,resp_set)'); return; end
+onset       = GetSecs;
+noresp      = 1;
+resp        = [];
+rt          = [];
+if ~isnumeric(resp_set), resp_set = ptb_response_set(resp_set); end
 while noresp
     
     [keyIsDown, secs, keyCode] = KbCheck(resp_device);
